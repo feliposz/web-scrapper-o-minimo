@@ -1,4 +1,4 @@
-# OMinimoScrapper
+# Scrapper "O Mínimo..."
 
 A web scrapper to get links to articles from a web site given the article titles.
 
@@ -13,7 +13,7 @@ The scrapper produces a JSON file with links and processed metadata.
 - Async/Await
 - JSON
 - Regular Expressions
-- HtmlAgilityPack
+- [HtmlAgilityPack](https://html-agility-pack.net/)
 
 ## References
 

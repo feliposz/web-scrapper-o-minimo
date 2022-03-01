@@ -35,6 +35,7 @@ public class Scrapper
             if (text == title)
             {
                 href = node.Attributes["href"].Value;
+                Debug.WriteLine("{0}\t{1}\t{2}\t{3}", text, title, 0, href);
                 Debug.WriteLine("Exact match!");
                 break;
             }
@@ -49,6 +50,12 @@ public class Scrapper
                     Debug.WriteLine("{0}\t{1}\t{2}\t{3}", text, title, distance, href);
                 }
             }
+        }
+
+        // titles are too different
+        if (bestDistance > title.Length / 4)
+        {
+            return string.Empty;
         }
 
         return href;
@@ -119,7 +126,7 @@ public class Scrapper
         var uri = new StringBuilder();
         uri.Append(baseUri);
         uri.Append("?s=");
-        uri.Append(Uri.EscapeDataString(searchString));
+        uri.Append(Uri.EscapeDataString(searchString.Replace(" \u0097 ", " ")));
         return uri.ToString();
     }
 
